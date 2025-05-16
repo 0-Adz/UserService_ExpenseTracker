@@ -3,6 +3,7 @@ package com.adzdevhub.userservice.service;
 import com.adzdevhub.userservice.entities.UserInfo;
 import com.adzdevhub.userservice.entities.UserInfoDto;
 import com.adzdevhub.userservice.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     @Autowired

@@ -2,6 +2,7 @@ package com.adzdevhub.userservice.controller;
 
 import com.adzdevhub.userservice.entities.UserInfoDto;
 import com.adzdevhub.userservice.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/user/v1/createUpdate")
-    public ResponseEntity<UserInfoDto> createUpdate(@RequestBody UserInfoDto userInfoDto){
+    public ResponseEntity<UserInfoDto> createUpdateUser(UserInfoDto userInfoDto){
         try{
             UserInfoDto user = userService.createOrUpdateUser(userInfoDto);
             return new ResponseEntity<>(user, HttpStatus.OK);
@@ -27,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/user/v1/getUser")
-    public ResponseEntity<UserInfoDto> getUser(UserInfoDto userInfoDto){
+    public ResponseEntity<UserInfoDto> getUser(@RequestBody UserInfoDto userInfoDto){
         try{
             UserInfoDto user = userService.getUser(userInfoDto);
             return new ResponseEntity<>(user, HttpStatus.OK);

@@ -15,9 +15,10 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "users")
 public class UserInfo {
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
@@ -43,6 +44,5 @@ public class UserInfo {
     private String email;
 
     @JsonProperty("profile_pic")
-    @NonNull
     private String profilePic;
 }
